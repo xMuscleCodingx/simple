@@ -403,7 +403,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         draft: true
-        files: ${{ github.workspace }}/../../_temp/macos/libsimple-osx-x64.zip
+        files: ${{ github.workspace }}/../../_temp/macos/libsimple-osx-${{ matrix.os }}.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
