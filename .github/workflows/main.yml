@@ -338,7 +338,7 @@ jobs:
     needs: Linux
     strategy:
       matrix:
-        os: [macos-latest, flyci-macos-large-latest-m1]
+        os: [macos-latest, macos-14]
     steps:
     - name: "Release Build Type"
       if: startsWith(github.ref, 'refs/tags/')
