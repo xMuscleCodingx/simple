@@ -393,10 +393,10 @@ jobs:
     - name: Package
       if: startsWith(github.ref, 'refs/tags/')
       run: |
-        mkdir libsimple-osx-x64
+        mkdir libsimple-osx-${{ matrix.os }}
         sudo xattr -r -d com.apple.quarantine src/libsimple.dylib
-        cp -r src/libsimple.dylib test/dict libsimple-osx-x64/
-        zip -r libsimple-osx-x64.zip libsimple-osx-x64
+        cp -r src/libsimple.dylib test/dict libsimple-osx-${{ matrix.os }}/
+        zip -r libsimple-osx-${{ matrix.os }}.zip libsimple-osx-${{ matrix.os }}
       working-directory: "${{ github.workspace }}/../../_temp/macos"
     - name: Release
       if: startsWith(github.ref, 'refs/tags/')
