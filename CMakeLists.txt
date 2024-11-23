@@ -10,7 +10,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 if (APPLE)
     # 检查当前系统的架构
-    if (${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "arm64")
+    execute_process(COMMAND uname -m OUTPUT_VARIABLE ARCHITECTURE OUTPUT_STRIP_TRAILING_WHITESPACE)
+    message(STATUS "Detected architecture: ${ARCHITECTURE}")
+
+    if (${ARCHITECTURE} STREQUAL "arm64")
         set(CMAKE_OSX_ARCHITECTURES "arm64" CACHE STRING "")
     else()
         set(CMAKE_OSX_ARCHITECTURES "x86_64" CACHE STRING "")
