@@ -334,8 +334,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   MacOS:
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     needs: Linux
+    strategy:
+      matrix:
+        os: [macos-latest, flyci-macos-large-latest-m1]
     steps:
     - name: "Release Build Type"
       if: startsWith(github.ref, 'refs/tags/')
