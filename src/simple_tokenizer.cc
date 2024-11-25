@@ -19,7 +19,7 @@ PinYin *SimpleTokenizer::get_pinyin() {
   return py;
 }
 
-static TokenCategory from_char(char c) {
+static TokenCategory from_char(unsigned char c) {
   auto uc = static_cast<unsigned char>(c);
   // ASCII should in 0..127
   if (uc > 127) {
